@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 import org.postgresql.geometric.PGpoint;
 
-@Converter(autoApply = true)
+@Converter
 public class PointToPGpointConverter implements AttributeConverter<Point, PGpoint> {
 	@Override
 	public PGpoint convertToDatabaseColumn(Point attribute) {

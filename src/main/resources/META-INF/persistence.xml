@@ -5,8 +5,20 @@
     version="2.0"
 >
     <persistence-unit name="fr.laboiteadodo.nonserializablepgpoint">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>fr.laboiteadodo.nonserializablepgpoint.PointToPGpointConverter</class>
+        <class>fr.laboiteadodo.nonserializablepgpoint.City</class>
+
         <properties>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect"/>
+
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql:nonserializablepgpoint" />
+            <property name="javax.persistence.jdbc.user" value="nonserializablepgpoint" />
+            <property name="javax.persistence.jdbc.password" value="nonserializablepgpoint" />
+
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
         </properties>
     </persistence-unit>
 </persistence>

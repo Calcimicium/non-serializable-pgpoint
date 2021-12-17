@@ -1,16 +1,26 @@
 package fr.laboiteadodo.nonserializablepgpoint;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class City {
-	private Point coordinates;
+	@Id
+	@GeneratedValue(generator = "city_id")
+	@SequenceGenerator(name = "city_id", sequenceName = "seq_city_id", allocationSize = 1)
+	private Long id;
 
-	public Point getCoordinates() {
-		return coordinates;
+//	@Convert(converter = PointToPGpointConverter.class)
+//	private Point coordinates;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setCoordinates(Point coordinates) {
-		this.coordinates = coordinates;
-	}
+//	public Point getCoordinates() {
+//		return coordinates;
+//	}
+
+//	public void setCoordinates(Point coordinates) {
+//		this.coordinates = coordinates;
+//	}
 }
